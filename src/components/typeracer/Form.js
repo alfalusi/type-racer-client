@@ -30,7 +30,7 @@ const Form = ({isOpen, isOver, gameID}) => {
         <div className='row my-3'>
             <div className='col-sm'></div>
             <div className='col-sm-4'>
-                <form>
+                <form onSubmit={e => { e.preventDefault(); }}>
                     <div className='form-group'>
                         <input type='test' readOnly={isOpen || isOver}
                                             onChange={onChange}

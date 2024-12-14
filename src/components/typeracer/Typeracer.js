@@ -35,9 +35,9 @@ const Typeracer = ({gameState}) => {
                             <Divider />
                             <Form isOpen={isOpen} isOver={isOver} gameID={_id}/>
                             <Divider />
-                            <CountDown />
                        </> : null }
 
+            <CountDown />
             <Divider />
             {isOpen ? 
                 <>
@@ -49,7 +49,7 @@ const Typeracer = ({gameState}) => {
                     : null 
             }
 
-            {isOver ? <ScoreBoard players={players} /> : null}
+            {player.finished ? <ScoreBoard players={players} /> : null}
             
         </div>
     );
