@@ -13,7 +13,7 @@ const ProgressBar = ({players, player, wordsLength}) => {
 
     return (
         <div>
-            <h4 className='text-start ms-2'>Score board</h4>
+            <h4 className='text-start ms-2'>Players Progress</h4>
             {
                 <>
                     <h5 className='text-start'>{player.nickname}</h5>
