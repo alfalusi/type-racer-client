@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
-import socket from '../socketConfig';
+import socket from '../../socketConfig';
 
 const Form = ({isOpen, isOver, gameID}) => {
     const [userInput, setUserInput] = useState('');

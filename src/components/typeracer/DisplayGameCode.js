@@ -23,14 +23,16 @@ const DisplayGameCode = ({gameID}) => {
                            readOnly
                            className='form-control' />
                     <div className='input-group-append'>
-                        <button className='btn btn-outline-secondary'
+                        <button className='btn btn-warning'
                                 onClick={copyToClipboard}
                                 type='button'>Copy Game Code</button>
                     </div>
-                    {copySuccess ? <div className='alert alert-success' role='alert'>Succesfully Copied Game Code</div> : null}
+                    <br></br>
                 </div>
             </div>
-            <div className='col-sm'></div>
+            <div className='col-sm'>
+                {copySuccess ? <div className='alert alert-success' role='alert'>Succesfully Copied Game Code</div> : null}
+            </div>
         </div>
     )
 };

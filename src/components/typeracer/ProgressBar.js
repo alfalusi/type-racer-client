@@ -13,9 +13,10 @@ const ProgressBar = ({players, player, wordsLength}) => {
 
     return (
         <div>
+            <h4 className='text-start ms-2'>Score board</h4>
             {
                 <>
-                    <h5 className='text-left'>{player.nickname}</h5>
+                    <h5 className='text-start'>{player.nickname}</h5>
                     <div className='progress my-1' key={player._id}>
                         <div className='progress-bar'
                              role='progressbar'
@@ -28,7 +29,7 @@ const ProgressBar = ({players, player, wordsLength}) => {
                     const percentage = calculatePercentage(playerObj, wordsLength);
                     return playerObj._id !== player._id ?
                             <div >
-                                <h5 className='text-left'>{playerObj.nickname}</h5>
+                                <h5 className='text-start'>{playerObj.nickname}</h5>
                                 <div className='progress my-1' key={playerObj._id}>
                                     <div className='progress-bar'
                                         role='progressbar'

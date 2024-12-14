@@ -1,6 +1,9 @@
 import React from 'react';
 
+import './DisplayWords.css';
+
 const typeCurrentStyle = {
+    'textDecoration' : 'bold',
     'backgroundColor' : '#34eb77'
 };
 
@@ -30,11 +33,19 @@ const DisplayWords = ({words, player}) => {
     console.log('displaywords');
 
     return(
-        <>
-            {getTypedWords(words, player)}
-            {getCurrentWord(words, player)}
-            {getWordsToBeTyped(words, player)}
-        </>
+        <div className='dw-container'>
+
+            <div className='dw-title'>
+                <h4>Text</h4>
+            </div>
+
+            <div className='display-words'>
+                {getTypedWords(words, player)}
+                {getCurrentWord(words, player)}
+                {getWordsToBeTyped(words, player)}
+            </div>
+
+        </div>
     );
 
 }

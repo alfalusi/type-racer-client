@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
-import socket from '../socketConfig';
+import socket from '../../socketConfig';
 
-const GameCreate = props => {
+const GameJoin = props => {
 
-  const [nickname, setNickname] = useState("");
+  const [userInput, setUserInput] = useState({gameID: "", nickname: ""});
 
   const onChange = e => {
-    setNickname(e.target.value);
+    setUserInput({...userInput,[e.target.name] : e.target.value});
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    socket.emit('create-game', nickname);
+    socket.emit('join-game', userInput);
   }
 
   return (
     <div className='row'>
       <div className='col-sm'></div>
       <div className='col-sm-8'>
-        <h1 className='text-center'>Create Game</h1>
+        <h1 className='text-center'>Join Game</h1>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
+            <label htmlFor='gameID'>Enter game ID</label>
+            <input type='text' name='gameID'
+                              value={userInput.gameID}
+                              onChange={onChange}
+                              placeholder='Enter game ID'
+                              className='form-control' 
+            />
             <label htmlFor='nickname'>Enter nick name</label>
             <input type='text' name='nickname'
-                              value={nickname}
+                              value={userInput.nickname}
                               onChange={onChange}
                               placeholder='Enter nick name'
                               className='form-control' 
@@ -37,4 +44,4 @@ const GameCreate = props => {
   );
 };
 
-export default GameCreate;
+export default GameJoin;

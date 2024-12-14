@@ -1,0 +1,13 @@
+.dw-container {
+    margin: 20px 0px 0px 0px;
+}
+
+.dw-title {
+    text-align: left;
+}
+
+.display-words {
+    padding: 10px;
+    border: 1px solid;
+    margin: 20px 0px 20px 0px;
+}

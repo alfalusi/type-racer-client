@@ -10,14 +10,14 @@ const GameMenu = () => {
       <button
         type='button'
         onClick={() => navigate('/game/create')}
-        className='btm btm-primary btn-lg mr-3'
+        className='btn btn-primary btn-lg me-3'
       >
         Create Game
       </button>
       <button
         type='button'
         onClick={() => navigate('/game/join')}
-        className='btm btm-primary btn-lg'
+        className='btn btn-primary btn-lg ms-3'
       >
         Join Game
       </button>

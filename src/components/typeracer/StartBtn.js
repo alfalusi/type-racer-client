@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import socket from '../socketConfig';
+import socket from '../../socketConfig';
 
 const StartBtn = ({player, gameID}) => {
     const [showBtn, setShowBtn] = useState(true);
