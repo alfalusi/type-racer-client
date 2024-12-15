@@ -22,8 +22,6 @@ function App() {
     // })
 
     socket.on('updateGame', (game) => {
-      console.log('merge');
-      console.log(game);
       setGameState(game);
     });
 
