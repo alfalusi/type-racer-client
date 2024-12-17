@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { handleError, handleSuccess } from "../../../utils";
+import { FetchHook } from "../../usefull/FetchHook";
 
 const SignUp = () => {
 
@@ -27,14 +28,16 @@ const SignUp = () => {
         }
 
         try {
-            const url = 'http://192.168.100.121:3001/auth/signup';
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(signupInfo)
-            });
+            // const url = 'http://192.168.100.121:3001/auth/signup';
+            // const response = await fetch(url, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(signupInfo)
+            // });
+
+            const response = await FetchHook('/auth/signup', 'POST', JSON.stringify(signupInfo));
 
             const result = await response.json();
             const { success, message, error } = result;
@@ -42,7 +45,7 @@ const SignUp = () => {
                 handleSuccess(message);
                 setTimeout(() => {
                     navigate('/login');
-                }, 20000);
+                }, 1000);
             } else if (error) {
                 const details = error?.details[0].message;
                 handleError(details);
