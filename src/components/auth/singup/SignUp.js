@@ -58,62 +58,64 @@ const SignUp = () => {
     }
 
     return (
-        <div className="container">
-            <div className='row my-3 text-center'>
-                <h1>Sign Up</h1>
+        <div className="login-container">
+            <div className="login-form">
+                <div className='row my-3 text-center'>
+                    <h1>Sign Up</h1>
+                </div>
+                <form onSubmit={handleSignup}>
+                    <div className='form-group row my-3'>
+                        <label htmlFor="name">Name: </label>
+                        <input
+                            onChange={handleChange}
+                            type="text"
+                            name="name"
+                            autoFocus
+                            placeholder="Enter name"
+                            className='form-control my-2'
+                            value={signupInfo.name}
+                        />
+                    </div>
+                    <div className='form-group row my-3'>
+                        <label htmlFor="email">Email: </label>
+                        <input
+                            onChange={handleChange}
+                            type="text"
+                            name="email"
+                            autoFocus
+                            placeholder="Enter email"
+                            className='form-control my-2'
+                            value={signupInfo.email}
+                        />
+                    </div>
+                    <div className='form-group row my-3'>
+                        <label htmlFor="password">Password: </label>
+                        <input
+                            onChange={handleChange}
+                            type="text"
+                            name="password"
+                            autoFocus
+                            placeholder="Enter password"
+                            className='form-control my-2'
+                            value={signupInfo.password}
+                        />
+                    </div>
+                    <div className='row my-3 text-center'>
+                        <button type='submit' className='btn btn-primary'>Sign Up</button>
+                    </div>
+                    <div className='row my-3 text-center'>
+                        <span>
+                            Already have an accout?
+                        </span>
+                    </div>
+                    <div className='row my-3 text-center'>
+                        <span>
+                            <Link to='/login'> <button type='submit' className='btn btn-secondary'>Login</button> </Link>
+                        </span>
+                    </div>
+                    <ToastContainer />
+                </form>
             </div>
-            <form onSubmit={handleSignup}>
-                <div className='form-group row my-3'>
-                    <label htmlFor="name">Name: </label>
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        name="name"
-                        autoFocus
-                        placeholder="Enter name"
-                        className='form-control'
-                        value={signupInfo.name}
-                    />
-                </div>
-                <div className='form-group row my-3'>
-                    <label htmlFor="email">Email: </label>
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        name="email"
-                        autoFocus
-                        placeholder="Enter email"
-                        className='form-control'
-                        value={signupInfo.email}
-                    />
-                </div>
-                <div className='form-group row my-3'>
-                    <label htmlFor="password">Password: </label>
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        name="password"
-                        autoFocus
-                        placeholder="Enter password"
-                        className='form-control'
-                        value={signupInfo.password}
-                    />
-                </div>
-                <div className='row my-3 text-center'>
-                    <button type='submit' className='btn btn-primary'>Sign Up</button>
-                </div>
-                <div className='row my-3 text-center'>
-                    <span>
-                        Already have an accout?
-                    </span>
-                </div>
-                <div className='row my-3 text-center'>
-                    <span>
-                        <Link to='/login'> <button type='submit' className='btn btn-secondary'>Login</button> </Link>
-                    </span>
-                </div>
-                <ToastContainer />
-            </form>
         </div>
     )
 
