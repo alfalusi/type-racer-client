@@ -11,6 +11,7 @@ import Typeracer from './components/typeracer/Typeracer';
 import Login from './components/auth/login/Login';
 import SignUp from './components/auth/singup/SignUp';
 import './App.css';
+import 'react-toastify/ReactToastify.css';
 
 function App() {
   let navigate = useNavigate();
@@ -36,18 +37,16 @@ function App() {
   }, [gameState._id]);
 
   return (
-    // <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path="/game/menu" element={<GameMenu />} />
-        <Route path="/game/create" element={<GameCreate />} />
-        <Route path="/game/join" element={<GameJoin />} />
-        <Route path="/game/:gameID" element={<Typeracer gameState={gameState} /> } />
-        <Route path="/game/arrows" element={<GameArrows />} />
-      </Routes>
-    // </BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path="/game/menu" element={<GameMenu />} />
+      <Route path="/game/create" element={<GameCreate />} />
+      <Route path="/game/join" element={<GameJoin />} />
+      <Route path="/game/:gameID" element={<Typeracer gameState={gameState} /> } />
+      <Route path="/game/arrows" element={<GameArrows />} />
+    </Routes>
   );
 }
 
