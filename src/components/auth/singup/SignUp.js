@@ -27,7 +27,7 @@ const SignUp = () => {
         }
 
         try {
-            const url = 'http://localhost:3001/auth/signup';
+            const url = 'http://192.168.100.121:3001/auth/signup';
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
