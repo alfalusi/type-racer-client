@@ -5,17 +5,24 @@ const GameJoin = props => {
 
   const [userInput, setUserInput] = useState({gameID: "", nickname: ""});
 
+  const signedInUsername = localStorage.getItem('loggedInUser');
+
   const onChange = e => {
     setUserInput({...userInput,[e.target.name] : e.target.value});
   };
 
   const onSubmit = e => {
     e.preventDefault();
+
+    if (signedInUsername) {
+      setUserInput({...userInput, ['nickname'] : signedInUsername});
+    }
+
     socket.emit('join-game', userInput);
   }
 
   return (
-    <div className='row'>
+    <div className='row my-3'>
       <div className='col-sm'></div>
       <div className='col-sm-8'>
         <h1 className='text-center'>Join Game</h1>
@@ -26,17 +33,29 @@ const GameJoin = props => {
                               value={userInput.gameID}
                               onChange={onChange}
                               placeholder='Enter game ID'
-                              className='form-control' 
+                              className='form-control my-3' 
             />
-            <label htmlFor='nickname'>Enter nick name</label>
-            <input type='text' name='nickname'
-                              value={userInput.nickname}
-                              onChange={onChange}
-                              placeholder='Enter nick name'
-                              className='form-control' 
-            />
+            { !signedInUsername ? 
+            <>
+              <label htmlFor='nickname'>Enter nick name</label>
+              <input type='text' name='nickname'
+                                value={userInput.nickname}
+                                onChange={onChange}
+                                placeholder='Enter nick name'
+                                className='form-control my-3' 
+              />
+            </> : 
+            <>
+              <label htmlFor='nickname'>Enter nick name</label>
+              <input type='text' name='nickname'
+                                value={signedInUsername}
+                                placeholder='signedInUsername'
+                                className='form-control my-3' 
+                                readOnly = {true}
+              />
+            </>}
           </div>
-          <button type='submit' className='btn btn-primary'>Submit</button>
+          <button type='submit' className='btn btn-primary my-3'>Submit</button>
         </form>
       </div>
       <div className='col-sm'></div>
