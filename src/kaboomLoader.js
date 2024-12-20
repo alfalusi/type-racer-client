@@ -85,5 +85,5 @@ k.loadSprite("background", "./assets/drones/background.png", {
 // k.loadSound("health", "./assets/drones/sounds/health.wav");
 // k.loadSound("flamethrower", "./assets/drones/sounds/flamethrower.mp3");
 
-k.loadSprite("room1", "./maps/room1.png");
-k.loadSprite("room2", "./maps/room2.png");
+k.loadSprite("room1", "./assets/drones/maps/room1.png");
+k.loadSprite("room2", "./assets/drones/maps/room2.png");
