@@ -7,16 +7,16 @@ const GameJoin = props => {
 
   const signedInUsername = localStorage.getItem('loggedInUser');
 
+  if (signedInUsername) {
+    setUserInput({...userInput, ['nickname'] : signedInUsername});
+  }
+
   const onChange = e => {
-    setUserInput({...userInput,[e.target.name] : e.target.value});
+    setUserInput({...userInput,[e.target.name] : 'Guest_' + e.target.value});
   };
 
   const onSubmit = e => {
     e.preventDefault();
-
-    if (signedInUsername) {
-      setUserInput({...userInput, ['nickname'] : signedInUsername});
-    }
 
     socket.emit('join-game', userInput);
   }

@@ -15,10 +15,11 @@ const GameCreate = props => {
     e.preventDefault();
 
     if (signedInUsername) {
-      setNickname(signedInUsername);
+      socket.emit('create-game', signedInUsername);
+      return ;
     }
 
-    socket.emit('create-game', nickname);
+    socket.emit('create-game', 'Guest_' + nickname);
   }
 
   return (
