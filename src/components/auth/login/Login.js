@@ -38,7 +38,7 @@ const Login = () => {
             //     body: JSON.stringify(loginInfo)
             // });
             
-            const response = await FetchHook('/auth/signup', 'POST', JSON.stringify(loginInfo));
+            const response = await FetchHook('/auth/login', 'POST', JSON.stringify(loginInfo));
 
             const result = await response.json();
             const { success, message, jwtToken, name, error } = result;
@@ -83,7 +83,7 @@ const Login = () => {
                         <label htmlFor="password">Password: </label>
                         <input
                             onChange={handleChange}
-                            type="text"
+                            type="password"
                             name="password"
                             autoFocus
                             placeholder="Enter password"

@@ -92,7 +92,7 @@ const SignUp = () => {
                         <label htmlFor="password">Password: </label>
                         <input
                             onChange={handleChange}
-                            type="text"
+                            type="password"
                             name="password"
                             autoFocus
                             placeholder="Enter password"
